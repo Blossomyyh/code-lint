@@ -34,8 +34,6 @@ public class TrailingZeros {
     }
 
 
-<<<<<<< HEAD
-=======
     public long trailingZerosB(long n) {
         if ( n < 5) {
             return 0;
@@ -47,7 +45,6 @@ public class TrailingZeros {
         return count;
     }
 
->>>>>>> origin/home
     public static void main(String[] args) {
         System.out.println(trailingZeros(25));
 
