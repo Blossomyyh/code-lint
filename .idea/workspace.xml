@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="232fab65-ce2d-469c-87b9-a33f111ea5cc" name="Default" comment="" />
+    <list default="true" id="232fab65-ce2d-469c-87b9-a33f111ea5cc" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/TrailingZeros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrailingZeros.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/src/TrailingZeros.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -203,7 +205,7 @@
     <entry file="file://$PROJECT_DIR$/src/TrailingZeros.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
