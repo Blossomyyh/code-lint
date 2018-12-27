@@ -12,13 +12,16 @@ However, some number within (1 ~ n) may give more 5's, which for example is: 25 
 In fact count = n / 5 + n / 25 + n / 125 + ....
         */
 
-        long m;
-        m = n/5;
-        return m;
+        int count  = 0;
+        for (long m =5 ; m <= n; m=m*5){
+            count+= n/m;
+        }
+        return count;
     }
 
     public static void main(String[] args) {
-        System.out.println(trailingZeros(11));
+        trailingZeros(25);
+//        System.out.println();
 
     }
 }
