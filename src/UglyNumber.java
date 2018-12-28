@@ -6,8 +6,8 @@ public class UglyNumber {
 
 
     tags: Math, DP, Heap, Enumeration,
-    todo:: PriorityQueue(java) 优先队列的作用是能保证每次取出的元素都是队列中权值最小的（Java的优先队列每次取最小元素，C++的优先队列每次取最大元素）。这里牵涉到了大小关系，元素大小的评判可以通过元素本身的自然顺序（natural ordering），也可以通过构造时传入的比较器（Comparator，类似于C++的仿函数）
-    PriorityQueue的peek()和element操作是常数时间，add(), offer(), 无参数的remove()以及poll()方法的时间复杂度都是log(N)。
+    todo:: PriorityQueue(java最小堆) 优先队列-队列中权值最小的（Java的优先队列每次取最小元素，C++的优先队列每次取最大元素）。这里牵涉到了大小关系，元素大小的评判可以通过元素本身的自然顺序（natural ordering），也可以通过构造时传入的比较器（Comparator，类似于C++的仿函数）
+    PriorityQueue的peek()顶部返回bool，插入offer()返回bool, 无参数的remove()、poll()-bool方法的时间复杂度都是log(N)。
 
     time: O(n)
     space: O(n)
