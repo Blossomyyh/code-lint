@@ -24,12 +24,29 @@ public class UglyNumber {
     - O(nlogn)
 
      **/
-    public static int uglyNumbers(long n){
+
+//    todo: define whether is ugly number  Time:log2N+log3N+log5N
+    public static boolean uglyNumbers(long n){
         int count = 0;
+//        first figure out 0 not ugly
+        if (n == 0) return false;
+        while (n%5 == 0) n = n/5;
+        while (n%3 == 0) n = n/3;
+        while (n%2 == 0) n = n/2;
 
-        return count;
+        return n==1;
+
     }
-    public static void main (String[] args){
 
+//    todo: print out ugly number for the sequence
+    public static int uglySequence(long n){
+//        NO.1690 为2^30不超过整形范围
+        int ugly = 0;
+//        for ()
+        return ugly;
+    }
+
+    public static void main (String[] args){
+        System.out.print(uglyNumbers(0));
     }
 }
