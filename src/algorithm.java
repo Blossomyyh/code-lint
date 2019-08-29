@@ -166,7 +166,7 @@ public class algorithm {
                     array[j] = temp;
                 }
             }
-            gap /= 3; // division should not be 2/1
+            gap /= 3; // division should not be 2/1 ends as infinite loop
         }
     }
 
