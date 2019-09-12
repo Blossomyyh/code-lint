@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class BinaryTree {
 
     public class TreeNode {
@@ -90,5 +92,58 @@ public class BinaryTree {
 //
 //            return next_maxDepth();
 //        }
+
+    /** iteration
+     * Stack in Java using LinkedList
+     * @param root
+     * @return
+     *
+     * Time O(n)
+     * Space OSpace complexity : in the worst case, the tree is completely unbalanced, e.g. each node has only left child node, the recursion call would occur
+        N times (the height of the tree), therefore the storage to keep the call stack would be O(N). But in the average case (the tree is balanced), the height of the tree would be
+    log(N). Therefore, the space complexity in this case would be
+    O(log(N)).
+     */
+    public static int maxHeightNode(TreeNode root){
+        int max = 0;
+        LinkedList<TreeNode> list = new LinkedList<>();
+        LinkedList<Integer> num = new LinkedList<>();
+
+        if (root == null) return 0; // don;t forget the initial one
+        list.add(root);
+        num.add(1);
+        int current = 1;
+        while (!list.isEmpty()){
+            root = list.pollLast();
+            current = num.pollLast();
+
+            if (root!= null){
+                max = Math.max(current, max);
+                list.add(root.left);
+                list.add(root.right);
+                num.add(current + 1);
+                num.add(current +1);
+            }
+        }
+        return max;
+
+    }
+
+    public static void main(String arg[]){
+        // Declaring a LinkedList
+        LinkedList list = new LinkedList();
+
+        // adding queue entry of people
+        // in order
+        list.add("Astha");
+        list.add("Shambhavi");
+        list.add("Nikhil");
+        list.add(null);
+
+        // printing the list
+        System.out.println("The initial queue is : " + list);
+
+        System.out.print("The order of exit is : ");
+    }
 
 }

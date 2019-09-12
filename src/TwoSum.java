@@ -101,12 +101,29 @@ public class TwoSum {
      carry=temp&(carry<<1);
      }
      return sum;
-     * @param arg
+     * @param
      */
+
+
+    public static int[] twoSum(int[] nums, int target) {
+        int[] res = new int[2];
+        for(int i = 0; i< nums.length; i++){
+            for (int j = i; j< nums.length; j++){
+                if ((i+j) == target) {
+                    res[0] = i;
+                    res[1] = j;
+                    break;
+                }
+            }
+        }
+        return res;
+    }
 
     public static void main(String arg[]){
 
-        System.out.print(getSumBit(3,-1));
+        //System.out.print(getSumBit(3,-1));
+        int[] n = {2,7,9};
+        int[] res = twoSum(n,9);
 
     }
 }

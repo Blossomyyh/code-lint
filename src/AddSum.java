@@ -19,42 +19,27 @@ public class AddSum {
      * @return
      */
 
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2){
+    // units tens hundreds thousands digit is matched from the beginning.
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode res = new ListNode(0);
-        res.next = null;
-        int a =0;
-        int b = 0;
-        int i = 0;
-        int result = 0;
-        while (l1 != null){
+        ListNode p = l1, q = l2, cur = res;
+        int carry = 0;
+        while(p!= null || q !=null){
+            int x = (p==null)? 0:p.val;
+            int y = (q ==null)? 0:q.val;
+            int sum = carry +x +y;
+            carry = sum/10;
+            cur.next = new ListNode(sum % 10);
+            cur = cur.next;
+            if(p!=null) p = p.next;
+            if(q!=null) q = q.next;
 
-            a += l1.val*Math.pow(10,i);
-
-            l1 = l1.next;
         }
-        i = 0;
-        while (l2 != null){
-
-            b += l2.val*Math.pow(10,i);
-
-            l2 = l2.next;
-            i++;
+        if(carry > 0){
+            cur.next = new ListNode(carry);
         }
+        return res.next;
 
-        result = a+b;
-        i = 1;
-        ListNode n = new ListNode(result % (int)Math.pow(10,i));
-        result = result/(int)Math.pow(10,i);
-        res = n;
-        while (result != 0){
-            i++;
-            ListNode m = new ListNode(result % (int)Math.pow(10,i));
-            //System.out.print(result % (int)Math.pow(10,i+1));
-            result = result/(int)Math.pow(10,i);
-            n.next = m;
-            n = n.next;
-        }
-        return res;
     }
 
     public static void main(String[] args){
