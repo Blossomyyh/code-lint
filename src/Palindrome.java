@@ -1,5 +1,5 @@
 public class Palindrome {
-    
+
 
 
     public static String longestPalindrome(String s) {
