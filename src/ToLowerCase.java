@@ -10,12 +10,12 @@ public class ToLowerCase {
                 }
                 else out += str.charAt(i);
             }
-            return out;
         } catch (Exception e){
             System.out.println("Exception Occured :" + e.getMessage());
         }
+        return out;
     }
     public static void main(String args[]){
-        toLowerCase("Abs");
+        String a = toLowerCase("Abs");
     }
 }
