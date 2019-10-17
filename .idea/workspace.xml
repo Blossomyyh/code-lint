@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="232fab65-ce2d-469c-87b9-a33f111ea5cc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AnagraphGroup.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Greedy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MaxSubArray.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ReverseInt.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Goldman.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PairSong.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deleteChar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/LintCode/ReverseInt.class" afterPath="$PROJECT_DIR$/out/production/LintCode/ReverseInt.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fib.java" afterPath="$PROJECT_DIR$/src/fib.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,22 +35,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="penny.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/penny.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1440">
-              <caret line="96" column="12" lean-forward="false" selection-start-line="96" selection-start-column="12" selection-end-line="96" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3402#3403#0" expanded="true" />
-                <element signature="e#3430#3431#0" expanded="true" />
-                <element signature="e#3461#3462#0" expanded="true" />
-                <element signature="e#3489#3490#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="fib.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fib.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -62,14 +45,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReverseInt.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReverseInt.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ReverseInt.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+            <state relative-caret-position="315">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deleteChar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deleteChar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="86" column="13" lean-forward="false" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PairSong.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PairSong.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Goldman.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Goldman.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1137">
+              <caret line="63" column="13" lean-forward="false" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,16 +109,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnagraphGroup.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AnagraphGroup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="45" lean-forward="false" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Greedy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Greedy.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -125,24 +128,6 @@
               <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pb.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pb.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1515">
-              <caret line="101" column="17" lean-forward="false" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4112#4113#0" expanded="true" />
-                <element signature="e#4139#4140#0" expanded="true" />
-                <element signature="e#4163#4164#0" expanded="true" />
-                <element signature="e#4190#4191#0" expanded="true" />
-                <element signature="e#4210#4211#0" expanded="true" />
-                <element signature="e#4236#4237#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -198,6 +183,9 @@
         <option value="$PROJECT_DIR$/src/MaxSubArray.java" />
         <option value="$PROJECT_DIR$/src/fib.java" />
         <option value="$PROJECT_DIR$/src/ReverseInt.java" />
+        <option value="$PROJECT_DIR$/src/deleteChar.java" />
+        <option value="$PROJECT_DIR$/src/PairSong.java" />
+        <option value="$PROJECT_DIR$/src/Goldman.java" />
       </list>
     </option>
   </component>
@@ -278,7 +266,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ReverseInt">
+  <component name="RunManager" selected="Application.deleteChar">
     <configuration name="AnagraphGroup" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="AnagraphGroup" />
@@ -336,9 +324,9 @@
       <envs />
       <method />
     </configuration>
-    <configuration name="pb" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="deleteChar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="pb" />
+      <option name="MAIN_CLASS_NAME" value="deleteChar" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -366,18 +354,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.penny" />
-      <item index="1" class="java.lang.String" itemvalue="Application.pb" />
-      <item index="2" class="java.lang.String" itemvalue="Application.AnagraphGroup" />
-      <item index="3" class="java.lang.String" itemvalue="Application.MaxSubArray" />
-      <item index="4" class="java.lang.String" itemvalue="Application.ReverseInt" />
+      <item index="1" class="java.lang.String" itemvalue="Application.AnagraphGroup" />
+      <item index="2" class="java.lang.String" itemvalue="Application.MaxSubArray" />
+      <item index="3" class="java.lang.String" itemvalue="Application.ReverseInt" />
+      <item index="4" class="java.lang.String" itemvalue="Application.deleteChar" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.ReverseInt" />
-        <item index="1" class="java.lang.String" itemvalue="Application.MaxSubArray" />
-        <item index="2" class="java.lang.String" itemvalue="Application.AnagraphGroup" />
-        <item index="3" class="java.lang.String" itemvalue="Application.penny" />
-        <item index="4" class="java.lang.String" itemvalue="Application.pb" />
+        <item index="0" class="java.lang.String" itemvalue="Application.deleteChar" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ReverseInt" />
+        <item index="2" class="java.lang.String" itemvalue="Application.MaxSubArray" />
+        <item index="3" class="java.lang.String" itemvalue="Application.AnagraphGroup" />
+        <item index="4" class="java.lang.String" itemvalue="Application.penny" />
       </list>
     </recent_temporary>
   </component>
@@ -406,15 +394,16 @@
       <workItem from="1569865121902" duration="1825000" />
       <workItem from="1569898698713" duration="3377000" />
       <workItem from="1570539327538" duration="13929000" />
-      <workItem from="1570752594821" duration="4338000" />
+      <workItem from="1570752594821" duration="6509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91726000" />
+    <option name="totallyTimeSpent" value="93897000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -429,7 +418,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39903265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39903265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -551,35 +540,30 @@
           <properties />
           <option name="timeStamp" value="65" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/deleteChar.java</url>
+          <line>7</line>
+          <properties />
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/deleteChar.java</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/deleteChar.java</url>
+          <line>67</line>
+          <properties />
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="66" />
+      <option name="time" value="69" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/algorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3480">
-          <caret line="232" column="28" lean-forward="false" selection-start-line="232" selection-start-column="28" selection-end-line="232" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LongestSubstringWithoutRepeatingCharacters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -969,11 +953,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ReverseInt.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+        <state relative-caret-position="315">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deleteChar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="86" column="13" lean-forward="false" selection-start-line="86" selection-start-column="13" selection-end-line="86" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PairSong.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Goldman.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1137">
+          <caret line="63" column="13" lean-forward="false" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
