@@ -222,7 +222,103 @@ public class Goldman {
         return cnt;
     }
 
+
+    public static String rotateString(String originalString, List<Integer> direction, List<Integer> amount) {
+        // Write your code here
+        if(amount.size()!=direction.size() || originalString.length()== 0) return "";
+        //rotate equal to add string in front of/at the end of the original string
+        String res= originalString;
+        int len = originalString.length();
+        for(int i = 0; i<direction.size(); i++){
+            int rot = amount.get(i);
+            if(direction.get(i)==0){
+                //add len of original string in front of res and choose substring from 0-len
+                if(rot<=res.length()){
+                    res = res.substring(len-rot, len) + res;
+                }
+                else{
+                    int time = rot/len;
+                    String add = "";
+                    for(int t = 0; i<time; i++) add=add + res;
+                    //res = res.substring(let - rot%len, len) + add +res;
+                }
+                res = res.substring(0, len);
+            }else if(direction.get(i)==1){
+                //add len of original string at the end of res and choose substring from 0-len
+                if(rot<=res.length()){
+                    res = res + res.substring(0,rot);
+                }else{
+                    int time = rot/len;
+                    String add = "";
+                    for(int t = 0; i<time; i++) add=add + res;
+                    res =res + add +res.substring(0, rot%len);
+                }
+
+                res = res.substring(rot);
+            }
+        }
+        return res;
+    }
+
+
+    public static List<List<Integer>> agridGame(List<List<Integer>> grid, int k, List<String> rules) {
+        // Write your code here
+        int n = grid.size();
+        int m = grid.get(0).size();
+        List<List<Integer>> out = new ArrayList<>();
+        for(int i = 0; i<n; i++){
+            List<Integer> line = new ArrayList<>();
+            for(int j = 0; j<m; j++){
+                if(rules.get(check(grid, i,j,m,n)).equals("alive")){
+                    line.add(1);
+                }else{
+                    line.add(0);
+                }
+            }
+            out.add(line);
+        }
+        return k==1? out:agridGame(grid, k-1, rules);
+    }
+
+    public static int check (List<List<Integer>> grid, int i, int j, int m, int n){
+        int res = 0;
+        int[][] dir = {{0,1},{0,-1},{1,0}, {-1,0}, {1,1}, {1,-1}, {-1,1}, {-1,-1}};
+        for(int k = 0; k<8; k++){
+            int x = i+dir[k][0];
+            int y = j+dir[k][1];
+            if(x<m && y<n && x>=0 && y>=0 && grid.get(x).get(y)==1){
+                res++;
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
+        List<Integer> a = new ArrayList<Integer>();
+        a.add(0);
+        a.add(1);
+        a.add(0);
+        a.add(0);
+        List<Integer> b = new ArrayList<Integer>();
+        b.add(0);
+        b.add(0);
+        b.add(0);
+        b.add(0);
+        List<List<Integer>> m = new ArrayList<>();
+        m.add(a);
+        m.add(b);
+        List<String> s = new ArrayList<>();
+        s.add("dead");
+        s.add("alive");
+        s.add("dead");
+        s.add("dead");
+        s.add("dead");
+        s.add("dead");
+        s.add("dead");
+        s.add("dead");
+
+        agridGame(m, 1,s);
+        //rotateaString("ephjos", a,b);
         //Q1
         //Testcase 1
 //        int mapping[] = new int[]{3,5,4,6,2,7,9,8,0,1};
@@ -256,25 +352,25 @@ public class Goldman {
 //
 //        System.out.println(matrixGame(matrix));
         //Q4. Spiral matrix
-        int[][] m = new int[][]{
-                {104723,7,3,200040,104549},
-                {13,5,104707,5,2},
-                {9,2,104712,3,9},
-                {6,12,0,11,104729}
-        };
-        List<List<Integer>> matrix = new ArrayList<>();
-        for(int i = 0; i < m.length; i++){
-            List<Integer> tmp = new ArrayList<>();
-            for(int j = 0; j< m[0].length;j++){
-                tmp.add((m[i][j]));
-            }
-            matrix.add(tmp);
-        }
-        long startTime = System.nanoTime();
-        System.out.println(spiralMatrix(matrix));
-        long endTime   = System.nanoTime();
-        long totalTime = endTime - startTime;
-        System.out.println(totalTime);
+//        int[][] m = new int[][]{
+//                {104723,7,3,200040,104549},
+//                {13,5,104707,5,2},
+//                {9,2,104712,3,9},
+//                {6,12,0,11,104729}
+//        };
+//        List<List<Integer>> matrix = new ArrayList<>();
+//        for(int i = 0; i < m.length; i++){
+//            List<Integer> tmp = new ArrayList<>();
+//            for(int j = 0; j< m[0].length;j++){
+//                tmp.add((m[i][j]));
+//            }
+//            matrix.add(tmp);
+//        }
+//        long startTime = System.nanoTime();
+//        System.out.println(spiralMatrix(matrix));
+//        long endTime   = System.nanoTime();
+//        long totalTime = endTime - startTime;
+//        System.out.println(totalTime);
         // 104549 104551 104561 104579 104593 104597 104623 104639 104651 104659
         // 104677 104681 104683 104693 104701 104707 104711 104717 104723 104729
 
