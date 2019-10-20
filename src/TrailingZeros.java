@@ -19,9 +19,46 @@ In fact count = n / 5 + n / 25 + n / 125 + ....
         return count;
     }
 
+    public static int solution(int N) {
+        // write your code in Java SE 8
+        //first transfer the N to int[]
+        int m = Math.abs(N);
+        boolean in = false;
+        StringBuffer s = new StringBuffer("");
+        int k = 10;
+        while(m!=0){
+
+            s.insert(0,m%k);
+            m = m/k;
+        }
+        if(N==0) return 50;
+        else if(N>0){
+            for(int i = 0;i<s.length(); i++){
+                if(s.charAt(i)<='5'){
+                    s.insert(i,5);
+                    in = true;
+                    break;
+                }
+            }
+            if(!in){
+                s.insert(s.length(),5);
+            }
+        }else if(N<0){
+            for(int i = 0;i<s.length(); i++){
+                if(s.charAt(i)>'5'){
+                    s.insert(i,5);
+                    break;
+                }
+            }
+        }
+
+        return Integer.parseInt(s.toString());
+    }
+
     public static void main(String[] args) {
-        trailingZeros(25);
+        //trailingZeros(25);
 //        System.out.println();
+        int a = solution(-78);
 
     }
 }
