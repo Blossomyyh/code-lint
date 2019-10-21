@@ -44,14 +44,51 @@ public class TrieWord {
         }
 
 //        //todo: step 2 backtracking starting for each cell in the board
-//        for (int j = 0; j<board.length;j++){
-//            for (int i = 0; i<board[0].length; i++){
-//                if (root.map.containsKey(board[i][j]))backTrack(i,j, board,root);
-//            }
-//        }
+        for (int j = 0; j<board.length;j++) {
+            for (int i = 0; i < board[0].length; i++) {
+                if (root.map.containsKey(board[i][j])) backtracking(i, j, board, root);
+            }
+        }
 
 
         return res;
+    }
+
+    private void backtracking(int row, int col,char[][] board, TrieNode parent) {
+        Character letter = board[row][col];
+        TrieNode currNode = parent.map.get(letter);
+
+        // check if there is any match
+        if (currNode.word != null) {
+            res.add(currNode.word);
+            currNode.word = null;
+        }
+
+        // mark the current letter before the EXPLORATION
+        board[row][col] = '#';
+
+        // explore neighbor cells in around-clock directions: up, right, down, left
+        int[] rowOffset = {-1, 0, 1, 0};
+        int[] colOffset = {0, 1, 0, -1};
+        for (int i = 0; i < 4; ++i) {
+            int newRow = row + rowOffset[i];
+            int newCol = col + colOffset[i];
+            if (newRow < 0 || newRow >= board.length || newCol < 0
+                    || newCol >= board[0].length) {
+                continue;
+            }
+            if (currNode.map.containsKey(board[newRow][newCol])) {
+                backtracking(newRow, newCol, board,currNode);
+            }
+        }
+
+        // End of EXPLORATION, restore the original letter in the board.
+        board[row][col] = letter;
+
+        // Optimization: incrementally remove the leaf nodes
+        if (currNode.map.isEmpty()) {
+            parent.map.remove(letter);
+        }
     }
 
 //    public void backTrack(int i, int j, char[][] board, TrieNode root){
