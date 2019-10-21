@@ -342,12 +342,14 @@ public class quora {
                 }
                 System.out.print('\n');
             }
+            System.out.print(oldM[0][2]);
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j <n; j++) {
                     if (i == j || (i+j== n-1)) {
                         continue;
                     }
-                    matrix[i][j] = oldM[n-j-1][i];
+
+                    matrix[n-j-1][i] =oldM[i][j] ;
                 }
             }
             System.out.println(k);
@@ -756,17 +758,17 @@ public class quora {
 
         //8.tupe
         //System.out.print(goodTuple(new int[]{1, 1, 2, 1, 5, 3, 2, 3}));
-//        int[][] m = {{1,2,3,4,5},
-//
-//                {6,7,8,9,10},
-//
-//                {11,12,13,14,15},
-//
-//                {16,17,18,19,20},
-//
-//                {21,22,23,24,25}};
-//        int[][] n = {{1,2,3},{4,5,6},{7,8,9}};
-//        rotate(n, 3);
+        int[][] m = {{1,2,3,4,5},
+
+                {6,7,8,9,10},
+
+                {11,12,13,14,15},
+
+                {16,17,18,19,20},
+
+                {21,22,23,24,25}};
+        int[][] n = {{1,2,3},{4,5,6},{7,8,9}};
+        rotate(n, 3);
 
 //        int[] a = { 0, 4, 8, 16 };
 //        int[] b = { 0, 2, 6, 12, 14, 20 };
@@ -803,8 +805,8 @@ public class quora {
 //
 //
 //        System.out.println(sumup("234","67"));
-        PriorityQueue<String> pQueue =
-                new PriorityQueue<String>();
+//        PriorityQueue<String> pQueue =
+//                new PriorityQueue<String>();
 
         // Adding items to the pQueue using add()
         //todo: PriorityQueue--Heap Data Structures and Heap has O(log(n))
@@ -820,17 +822,17 @@ public class quora {
 //        while (itr.hasNext())
 //            System.out.println(itr.next());
 
-        int[][] test = {{8, 4, 1}, {4, 4, 1}, {4, 8, 9}};
-
-        sortDiagonal(test);
-
-        for (int i = 0; i < test.length; i++) {
-            for (int j = 0; j < test[0].length; j++) {
-                System.out.print(test[i][j]);
-                System.out.print(" ");
-            }
-            System.out.print("\n");
-        }
+//        int[][] test = {{8, 4, 1}, {4, 4, 1}, {4, 8, 9}};
+//
+//        sortDiagonal(test);
+//
+//        for (int i = 0; i < test.length; i++) {
+//            for (int j = 0; j < test[0].length; j++) {
+//                System.out.print(test[i][j]);
+//                System.out.print(" ");
+//            }
+//            System.out.print("\n");
+//        }
 
     }
 }
