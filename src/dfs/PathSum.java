@@ -7,7 +7,7 @@ public class PathSum {
     public static boolean hasPathSum(BinaryTree.TreeNode root, int sum){
         if (root==null) return false;
 
-        // todo: bfs use stack to pop and push -- in java is linkedlist
+        // todo: dfs use stack to pop and push -- in java is linkedlist
         LinkedList<BinaryTree.TreeNode> stack = new LinkedList<>();
         LinkedList<Integer> sumStack = new LinkedList<>();
 
