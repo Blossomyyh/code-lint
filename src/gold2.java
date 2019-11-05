@@ -5,31 +5,8 @@ public class gold2 {
     //2. 两个input的都是string list
     //3. 给定的那组数字，每个数字长度是0～100（没错，我就是没看到这个），所以不能parseInt
     //Q1 Strange Sorting
-    public static String[] strangeSorting(int[] m, String[] nums){
-        Map<Integer,Integer> map = new HashMap<>();
-        for(int i = 0; i < m.length; i++)
-            map.put(m[i],i);
-        Arrays.sort(nums, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                StringBuilder sb1 = new StringBuilder(), sb2 = new StringBuilder();
-                Boolean record = false;
-                for(char c:o1.toCharArray()){
-                    // how to make string Integer to become int -> '-'0''
-                    if(!record && map.get(c-'0')!= 0) record = true;
-                    if(record) sb1.append(map.get(c-'0'));
-                }
-                record = false;
-                for(char c:o2.toCharArray()){
-                    if(!record && map.get(c-'0')!= 0) record = true;
-                    if(record) sb2.append(map.get(c-'0'));
-                }
-                if(sb1.length()!= sb2.length()) return sb1.length()>sb2.length()? 1:-1;
-                else return sb1.toString().compareTo(sb2.toString());
-            }
-        });
-        return nums;
-    }
+    //
+
 
     //1.Find the rank
     //这题狠狠被坑了一把，一开始楼主用的暴力解法(sort全部)

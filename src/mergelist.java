@@ -62,4 +62,76 @@ public class mergelist {
         h.next = null;
         return head.next;
     }
+
+
+    //todo: priority queue
+    public ListNode mergeKListsPri(ListNode[] lists) {
+        Comparator<ListNode> cmp = new Comparator<ListNode>() {
+            @Override
+            public int compare(ListNode o1, ListNode o2) {
+                return o1.val-o2.val;
+            }
+        };
+
+
+        Queue<ListNode> q = new PriorityQueue<ListNode>(cmp);
+        for(ListNode l : lists){
+            if(l!=null){
+                q.add(l);
+            }
+        }
+        ListNode head = new ListNode(0);
+        ListNode point = head;
+        while(!q.isEmpty()){
+            point.next = q.poll();
+            point = point.next;
+            ListNode next = point.next;
+            if(next!=null){
+                q.add(next);
+            }
+        }
+        return head.next;
+    }
+
+
+
+    //todo: merge----divide and conquer
+    public ListNode merge2Lists(ListNode l1, ListNode l2) {
+        ListNode h = new ListNode(0);
+        ListNode ans=h;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                h.next = l1;
+                h = h.next;
+                l1 = l1.next;
+            } else {
+                h.next = l2;
+                h = h.next;
+                l2 = l2.next;
+            }
+        }
+        if(l1==null){
+            h.next=l2;
+        }
+        if(l2==null){
+            h.next=l1;
+        }
+        return ans.next;
+    }
+    public ListNode mergeListsKDiv(ListNode[] lists) {
+        if(lists.length==0){
+            return null;
+        }
+        int interval = 1;
+        while(interval<lists.length){
+            System.out.println(lists.length);
+            for (int i = 0; i + interval< lists.length; i=i+interval*2) {
+                lists[i]=merge2Lists(lists[i],lists[i+interval]);
+            }
+            interval*=2;
+        }
+
+        return lists[0];
+    }
+
 }
