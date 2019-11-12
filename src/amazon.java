@@ -289,7 +289,91 @@ public class amazon {
     }
 
 
+
+    // METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
+    public  static ArrayList<Integer> movieDuration(int flightDuration,
+                                     ArrayList<Integer> movieDuration) {
+            // WRITE YOUR CODE HERE
+            HashMap<Integer,Integer> map = new HashMap<>();
+            for(int i = 0;i<movieDuration.size();i++){
+                map.put(movieDuration.get(i),i);
+            }
+            Collections.sort(movieDuration);
+
+            ArrayList<Integer> res = new ArrayList<>();
+            int l = 0;
+            int h = movieDuration.size()-1;
+            int d = Integer.MAX_VALUE;
+            while(l<h){
+                int cur = movieDuration.get(l) +movieDuration.get(h);
+                int dif = flightDuration - cur;
+
+                if (dif < d && dif>=0){
+                    d = dif;
+                    res.clear();
+                    res.add(map.get(movieDuration.get(l)));
+                    res.add(map.get(movieDuration.get(h)));
+                }
+                if(cur<flightDuration){
+                    l++;
+                }else{
+                    h--;
+                }
+            }
+            return res;
+    }
+
+
+    // METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
+    static void closestLocations(int totalCrates,
+                                         int[][] allLocations,
+                                         int truckCapacity)
+    {
+        List<List<Integer>> res = new ArrayList<>();
+        for(int[] loc: allLocations){
+            double d  = Math.sqrt(Math.pow(loc[0],2) +Math.pow(loc[1],2) );
+            //System.out.println(d);
+            if(d<= (double)truckCapacity){
+                List<Integer> l = new ArrayList<>();
+                l.add(loc[0]);
+                l.add(loc[1]);
+                res.add(l);
+            }
+        }
+        return ;
+
+    }
+    // METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
+    // METHOD SIGNATURE BEGINS, THIS METHOD IS REQUIRED
+    List<List<Integer>> closestLocations(int totalCrates,
+                                         List<List<Integer>> allLocations,
+                                         int truckCapacity)
+    {
+
+        List<List<Integer>> res = new ArrayList<>();
+        HashMap<Integer,List<Integer>> map = new HashMap<>();
+        if(totalCrates<truckCapacity) return res;
+
+        for(List<Integer> loc: allLocations){
+            int d  = (int)Math.sqrt(Math.pow(loc.get(0),2) +(int)Math.pow(loc.get(1),2));
+            //System.out.println(d);
+            map.put(d, loc);
+
+        }
+        HashSet<Integer> s = (HashSet<Integer>) map.keySet();
+        for(int i =0;i<truckCapacity;i++){
+//            res.add(map.get(s.get(i)));
+            s.toArray();
+        }
+        return res;
+
+    }
+    //
+
     public static void main(String args[]){
+
+        int[][] a = new int[][]{{1,-3},{1,2},{3,4}};
+//        closestLocations(a,3);
 //        1.mostcommon words
 //        String m = commonWord("a, AAA, ? ! &% $ # &((a, a, b,b,b,c, c", new String[]{"b"});
 //        2. Substrings of size K
@@ -322,6 +406,8 @@ public class amazon {
          */
 
 
+
+
 //
 //        /*
 //        longest palindrome
@@ -329,8 +415,15 @@ public class amazon {
 //        String m = longestPalindrome("bb");
 //        System.out.print(m);
 
-//        subKDistinct(new int[]{1,2,1,2,3},2);
-
+////        subKDistinct(new int[]{1,2,1,2,3},2);
+//        ArrayList<Integer> a = new ArrayList<>();
+//        a.add(20);
+//        a.add(70);
+//        a.add(90);
+//        a.add(30);
+//        a.add(60);
+//        a.add(110);
+//        movieDuration(110,a);
 
 
     }
