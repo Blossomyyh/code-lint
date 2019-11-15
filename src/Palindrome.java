@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Stack;
 
 public class Palindrome {
@@ -178,9 +180,201 @@ public class Palindrome {
 //        return ans;
 //    }
 
+    static ArrayList<String> res = new ArrayList<>();
+
+    //todo output all palindrom in string
+    //time complexity O(n^2)
+    public static ArrayList<String> findall(String s){
+        if(s==null ||s.length()==0) return res;
+        for(int i = 0;i<s.length();i++){
+            //even
+            int len1= check(i,i+1,s);
+            if (len1>0){
+
+                res.add(s.substring(i-len1+1,i+len1+1));
+            }
+            //odd
+            int len2 = check(i,i,s);
+            if(len2>0){
+                if(len2==1) res.add(s.substring(i,i+1));
+                //todo add substring need to +1 or it will less than
+                else res.add(s.substring(i-len2+1,i+len2));
+            }
+
+        }
+        return res;
+    }
+    public static int check(int i,int j, String s){
+        int len = 0;
+        while ( i>=0 && j<s.length() && i<=j && s.charAt(i)==s.charAt(j)){
+            len++;
+            i--;
+            j++;
+        }
+        return len;
+    }
+
+
+
+    //todo:  solution2!!!
+    public static String countMiddle (String s){
+//        ArrayList<String> res = new ArrayList<>();
+        String res = "";
+        if(s.length()==0 ||s==null) return res;
+        //todo: middle should be 2n-1 times
+        int n = s.length();
+        for (int m = 0;m<2*n-1;m++){
+            int i = m/2;
+            int j = (m+1)/2;
+            int len = 0;
+            while (i>=0 && j<n && i<=j && s.charAt(i)==s.charAt(j)){
+                len++;
+                //res.add(s.substring(i,j+1));
+                if(res.length()<(j-i+1)) res = s.substring(i,j+1);
+
+                i--;
+                j++;
+            }
+        }
+        return res;
+    }
+
+
+    /**
+     * permutation of string to become palindrome
+     * array hashmap
+     * \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+     * use count to collect all remains for 2
+     * \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+     * @param s
+     * @return
+     *
+     * time O(n) space O(n)
+     */
+    public boolean PermutePalindrome(String s) {
+        HashMap < Character, Integer > map = new HashMap < > ();
+        for (int i = 0; i < s.length(); i++) {
+            map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
+        }
+        int count = 0;
+        for (char key: map.keySet()) {
+            // todo only allow one of count +1
+            count += map.get(key) % 2;
+        }
+        return count <= 1;
+    }
+
+    public boolean canPermutePalindrome(String s) {
+        //todo permutation should use %2 --- may have character 3/5/4/6 times
+        //permutation means one way of permute
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(char c: s.toCharArray()){
+            map.put(c, map.getOrDefault(c,0)+1);
+        }
+        int m1=0;
+        for(char c: map.keySet()){
+            if(map.get(c)%2==0) continue;
+            else if(map.get(c)%2==1){
+                if(m1==1) return false;
+                else{
+                    m1++;
+                }
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+    //TODO Manchester
+    static void findLongestPalindromicString(String text)
+    {
+        int N = text.length();
+        if (N == 0)
+            return;
+        N = 2 * N + 1; // Position count
+        int[] L = new int[N + 1]; // LPS Length Array
+        L[0] = 0;
+        L[1] = 1;
+        int C = 1; // centerPosition
+        int R = 2; // centerRightPosition
+        int i = 0; // currentRightPosition
+        int iMirror; // currentLeftPosition
+        int maxLPSLength = 0;
+        int maxLPSCenterPosition = 0;
+        int start = -1;
+        int end = -1;
+        int diff = -1;
+
+        // Uncomment it to print LPS Length array
+        // printf("%d %d ", L[0], L[1]);
+        for (i = 2; i < N; i++)
+        {
+
+            // get currentLeftPosition iMirror
+            // for currentRightPosition i
+            iMirror = 2 * C - i;
+            L[i] = 0;
+            diff = R - i;
+
+            // If currentRightPosition i is within
+            // centerRightPosition R
+            if (diff > 0)
+                L[i] = Math.min(L[iMirror], diff);
+
+            // Attempt to expand palindrome centered at
+            // currentRightPosition i. Here for odd positions,
+            // we compare characters and if match then
+            // increment LPS Length by ONE. If even position,
+            // we just increment LPS by ONE without
+            // any character comparison
+            while (((i + L[i]) + 1 < N && (i - L[i]) > 0) &&
+                    (((i + L[i] + 1) % 2 == 0) ||
+                            (text.charAt((i + L[i] + 1) / 2) ==
+                                    text.charAt((i - L[i] - 1) / 2))))
+            {
+                L[i]++;
+            }
+
+            if (L[i] > maxLPSLength) // Track maxLPSLength
+            {
+                maxLPSLength = L[i];
+                maxLPSCenterPosition = i;
+            }
+
+            // If palindrome centered at currentRightPosition i
+            // expand beyond centerRightPosition R,
+            // adjust centerPosition C based on expanded palindrome.
+            if (i + L[i] > R)
+            {
+                C = i;
+                R = i + L[i];
+            }
+
+            // Uncomment it to print LPS Length array
+            // printf("%d ", L[i]);
+        }
+
+        start = (maxLPSCenterPosition - maxLPSLength) / 2;
+        end = start + maxLPSLength - 1;
+        System.out.printf("LPS of string is %s : ", text);
+        for (i = start; i <= end; i++)
+            System.out.print(text.charAt(i));
+        System.out.println();
+    }
 
 
     public static void main (String args[]){
+        String text = "babcbabcbaccba";
+        findLongestPalindromicString(text);
+        countMiddle("abbc");
+        findall("aaa");
         String m = longestPalindrome("aab");
         System.out.print(m);
     }

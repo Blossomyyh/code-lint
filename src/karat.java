@@ -193,16 +193,17 @@ public class karat {
                 }
             }
 
-        ans = 0;
+//        ans = 0;
         dfs(sr, sc, todo);
-        return ans;
+        return 0;
+//        return ans;
     }
 
     public void dfs(int r, int c, int todo) {
         todo--;
         if (todo < 0) return;
         if (r == tr && c == tc) {
-            if (todo == 0) ans++;
+//            if (todo == 0) ans++;
             return;
         }
 
@@ -310,7 +311,143 @@ class Interval{
     int end =0;
 }
 
+/*
+You are a developer for a university. Your current project is to develop a system for students to find courses they share with friends. The university has a system for querying courses students are enrolled in, returned as a list of (ID, course) pairs.
 
+Write a function that takes in a list of (student ID number, course name) pairs and returns, for every pair of students, a list of all courses they share.
+
+Sample Input:
+
+student_course_pairs_1 = [
+  ["58", "Linear Algebra"],
+  ["94", "Art History"],
+  ["94", "Operating Systems"],
+  ["17", "Software Design"],
+  ["58", "Mechanics"],
+  ["58", "Economics"],
+  ["17", "Linear Algebra"],
+  ["17", "Political Science"],
+  ["94", "Economics"],
+  ["25", "Economics"],
+  ["58", "Software Design"],
+]
+
+Sample Output (pseudocode, in any order):
+
+find_pairs(student_course_pairs_1) =>
+{
+  [58, 17]: ["Software Design", "Linear Algebra"]
+  [58, 94]: ["Economics"]
+  [58, 25]: ["Economics"]
+  [94, 25]: ["Economics"]
+  [17, 94]: []
+  [17, 25]: []
+}
+
+Additional test cases:
+
+Sample Input:
+
+student_course_pairs_2 = [
+  ["42", "Software Design"],
+  ["0", "Advanced Mechanics"],
+  ["9", "Art History"],
+]
+
+Sample output:
+
+find_pairs(student_course_pairs_2) =>
+{
+  [0, 42]: []
+  [0, 9]: []
+  [9, 42]: []
+}
+
+
+*/
+
+class Solution1 {
+    public static ArrayList<ArrayList<String>> common(String[][] list){
+        ArrayList<ArrayList<String>> res = new ArrayList<>();
+        HashMap<Integer, ArrayList<String>> map = new HashMap<>();
+        ArrayList<Integer> set = new ArrayList<>();
+        for(String[] s:list){
+            int stu = Integer.parseInt(s[0]);
+            if(!set.contains(stu)) set.add(stu);
+            String course = s[1];
+            // traversal the string
+            if(map.containsKey(stu)){
+                map.get(stu).add(course);
+            }else{
+                ArrayList<String> array = new ArrayList<>();
+                array.add(course);
+                map.put(stu,array);
+            }
+        }
+
+        for(int i=0;i<set.size()-1;i++){
+            for(int j = 1;j<set.size();j++){
+                //compare two student's courses
+
+                ArrayList<String> common = new ArrayList<>();
+                HashSet<String> course = new HashSet<>();
+                ArrayList<String> num2 = new ArrayList<>();
+                num2.add(set.get(i).toString());
+                num2.add(set.get(j).toString());
+
+
+                ArrayList<String> s1= map.get(set.get(i));
+                for(String cour: s1){
+                    course.add(cour);
+                }
+                ArrayList<String> s2= map.get(set.get(j));
+                for(String cour2: s2){
+                    if(course.contains(cour2)){
+                        common.add(cour2);
+                    }
+                }
+                res.add(num2);
+                for(String s: num2){
+                    System.out.print(s);
+                }
+                res.add(common);
+                for(String s: num2){
+                    System.out.print(s);
+                }
+
+            }
+        }
+
+        return res;
+    }
+
+    public static void main(String[] argv) {
+
+
+        String[][] studentCoursePairs1 = {
+                {"58", "Linear Algebra"},
+                {"94", "Art History"},
+                {"94", "Operating Systems"},
+                {"17", "Software Design"},
+                {"58", "Mechanics"},
+                {"58", "Economics"},
+                {"17", "Linear Algebra"},
+                {"17", "Political Science"},
+                {"94", "Economics"},
+                {"25", "Economics"},
+                {"58", "Software Design"}
+        };
+
+        String[][] studentCoursePairs2 = {
+                {"42", "Software Design"},
+                {"0", "Advanced Mechanics"},
+                {"9", "Art History"},
+        };
+
+        common(studentCoursePairs1);
+
+    }
+}
 
 
 
