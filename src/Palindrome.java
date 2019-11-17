@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Stack;
 
 public class Palindrome {
@@ -330,7 +331,7 @@ public class Palindrome {
 
             // Attempt to expand palindrome centered at
             // currentRightPosition i. Here for odd positions,
-            // we compare characters and if match then
+            // we compare characters and if matchWildCard then
             // increment LPS Length by ONE. If even position,
             // we just increment LPS by ONE without
             // any character comparison
@@ -370,7 +371,43 @@ public class Palindrome {
     }
 
 
+
+    public static List<List<Integer>> palindromePairs(String[] words) {
+        ArrayList<List<Integer>> list = new ArrayList<>();
+        ArrayList<Integer> item = new ArrayList<>();
+        for(int i = 0;i<words.length;i++){
+            for(int j = i+1;j<words.length;j++){
+                String concat1 = words[i]+ words[j];
+                if(check(concat1)){
+                    System.out.print(i +"!" + j);
+                    item.add(i);
+                    item.add(j);
+                    list.add(item);
+                    item.clear();
+                }
+                String concat2 = words[j] + words[i];
+                if(check(concat2)){
+                    System.out.print(j +"!" + i);
+                    item.add(j);
+                    item.add(i);
+                    list.add(item);
+                    item.clear();
+                }
+            }
+        }
+        return list;
+    }
+
+    //todo: use reverse in StringBuffer to check
+    public static boolean check(String s){
+        //use reverse
+        String reverse = new StringBuilder(s).reverse().toString();
+        return s.equals(reverse);
+    }
+
+
     public static void main (String args[]){
+        palindromePairs(new String[]{"abcd","dcba","lls","s","sssll"});
         String text = "babcbabcbaccba";
         findLongestPalindromicString(text);
         countMiddle("abbc");

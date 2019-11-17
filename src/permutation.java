@@ -38,6 +38,8 @@ public class permutation {
         s[i] = s[j];
         s[j] = temp;
     }
+
+    //todo compare all the char in s && reduce the duplicate one with s[l] != s[i]!!!
     static void permute(char[] s, int l, char ch) {
         if (l == s.length) {
             set.add(new String(s) + (ch == 0 ? "" : ch) + new StringBuffer(new String(s)).reverse());
@@ -48,6 +50,20 @@ public class permutation {
                     permute(s, l + 1, ch);
                     swap(s, l, i);
                 }
+            }
+        }
+    }
+
+    //todo simple permutate
+    void simplepermute(char[] s, int l) {
+        if (l == s.length) {
+            if (canPermutePalindrome(new String(""), new int[128]))
+                set.add(new String(s));
+        } else {
+            for (int i = l; i < s.length; i++) {
+                swap(s, l, i);
+                simplepermute(s, l + 1);
+                swap(s, l, i);
             }
         }
     }
