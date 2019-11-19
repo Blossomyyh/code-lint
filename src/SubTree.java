@@ -42,6 +42,7 @@ public class SubTree {
         else if(s.val == t.val){
             return s;
         }
+
         else
         return traversal(s.left, t);
     }
