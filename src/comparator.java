@@ -40,6 +40,7 @@ public class comparator {
      * @return
      */
     public static void comparaOver(int[] m,String[] nums){
+        Comparator.reverseOrder();
         Arrays.sort(nums, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
