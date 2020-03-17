@@ -117,14 +117,11 @@ public class permutation {
         }
         //Map.Entry<Integer, Integer>   map.entrySet()
         int i = 0;
-        for(HashMap.Entry<Integer, Integer> item: map.entrySet()){
-            unum[i]=item.getKey();
-            fnum[i]=item.getValue();
+        for(HashMap.Entry<Integer, Integer> item: map.entrySet()) {
+            unum[i] = item.getKey();
+            fnum[i] = item.getValue();
             i++;
         }
-
-
-
         res = permute(0,num,unum,fnum,res);
 
         return res;

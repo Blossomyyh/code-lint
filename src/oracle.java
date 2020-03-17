@@ -1,4 +1,7 @@
 // Created by Yuhan Yin on 01/17/2020
+
+import java.util.Arrays;
+
 /**
  * Definition for singly-linked list.
  */
@@ -16,7 +19,7 @@ public class oracle {
      * @param root
      * @return frist
      */
-    public static Listnode findMiddleNode(Listnode root){
+    public Listnode findMiddleNode(Listnode root){
 
         Listnode first = root;
         Listnode second = root;
@@ -34,6 +37,8 @@ public class oracle {
 
     /**
      * NO.2 find X for ABCD
+     * (1) first solution
+     * merely figure out the value of X
      * ABCD + X = DCBA ( 1000 ~ 9999 )
      * @param A
      * @param B
@@ -41,14 +46,27 @@ public class oracle {
      * @param D
      * @return X
      */
-    public static int findX(int A, int B, int C, int D){
+    public int findX(int A, int B, int C, int D){
         int X = 0;
-
-
-
+        if(A>=1 && A<=9 && D>=1 && D<=9 && B>=0 && B<=9 && C>=0 && C<=9){
+            X = 999* A + 90* B -90*C- 999*D;
+        } else {
+            // -1 means has error
+            return -1;
+        }
         return X;
     }
 
+    /**
+     * NO.2 find X for ABCD
+     * (2) second solution
+     * X can be a reverse operator
+     * reverse sequence with stringbuffer
+     */
+    public static String reverse(int[] num){
+        StringBuffer s = new StringBuffer(Arrays.toString(num));
+        return s.reverse().toString();
+    }
 
 
 

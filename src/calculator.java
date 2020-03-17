@@ -4,63 +4,6 @@ import java.util.List;
 import java.util.Stack;
 
 public class calculator {
-    public static int basicCalculator(String s){
-        int res = 0;
-        Stack<Integer> stackVal = new Stack<>();
-        Stack<Character> stackOp = new Stack<>();
-
-        int i = 0;
-        while (i<s.length()){
-            if(Character.isDigit(s.charAt(i))){
-                int val = 0;
-                while (i<s.length() && Character.isDigit(s.charAt(i))){
-                    val = val*10 +(s.charAt(i)-'0');
-                    i++;
-                }
-                stackVal.push(val);
-                i--;
-            }else if(s.charAt(i)=='-' ||s.charAt(i)=='+'||s.charAt(i)=='('){
-                if(!stackOp.isEmpty() && stackOp.peek()=='-' && s.charAt(i)=='+'){
-                    char op = stackOp.pop();
-                    int val2 = stackVal.pop();
-                    int val1 = stackVal.pop();
-                    int sum = opcalculate(op, val1, val2);
-                    stackVal.push(sum);
-                }
-
-                stackOp.push(s.charAt(i));
-            }else if(s.charAt(i)==')'){
-                while (stackOp.peek()!='('){
-                    char op = stackOp.pop();
-                    int val2 = stackVal.pop();
-                    int val1 = stackVal.pop();
-                    int sum = opcalculate(op, val1, val2);
-                    stackVal.push(sum);
-                }
-                stackOp.pop();//pop (
-            }
-            i++;
-        }
-        while (!stackOp.isEmpty()&& !stackVal.isEmpty()){
-            char op = stackOp.pop();
-            int val2 = stackVal.pop();
-            int val1 = stackVal.pop();
-            int sum = opcalculate(op, val1,val2);
-            stackVal.push(sum);
-        }
-        return stackVal.pop();
-
-    }
-
-    public static int opcalculate(char op, int val1, int val2){
-        if (op=='-'){
-            return val1-val2;
-        }else if (op=='+'){
-            return val1+val2;
-        }else {
-            return 0;
-        }
-    }
 
     public static int calculate(String s){
         Stack<Object> stack = new Stack<>();
@@ -104,33 +47,7 @@ public class calculator {
     }
 
 
-    public static void main(String args[]){
-        /**
-         * (a+b)-c
-         * Input: "(1+(4+5+2)-3)+(6+8)"
-         Output: 23
 
-         // problem!!! "2-4-(8+2-6+(8+4-(1)+8-10))"
-         */
-//        findLength(new int[]{1,2,3},new int[]{2,3});
-
-        List<List<String>> a = new ArrayList<List<String>>();
-//        a.add(new ArrayList<String>())
-        ArrayList<String> b = new ArrayList<>();
-        b.add("google.com");
-        b.add("60");
-        a.add(b);
-        b.clear();
-        b.add("yahoo.google.com");
-        b.add("50");
-        a.add(b);
-//        domain(a);
-//        int res = basicCalculator( " 2-1 + 2 ");
-
-//        int res = calculate("(1-2)+4");
-//        System.out.print(res);
-
-    }
 
 
 
@@ -214,4 +131,87 @@ public class calculator {
  * resolve all high level operations on the first traversal (*, /)
  * resolve the rest on the second (+, -)
  * */
+
+
+public static int calculatebase(String s){
+    Stack<Object> stack = new Stack<>();
+    char[] c = s.toCharArray();
+    int ope = 0;
+    int time = 0;
+    for(int i = c.length-1;i>=0;i--){
+
+        char ch = c[i];
+        //digital number
+        if(Character.isDigit(c[i])){
+            ope = ope+(int)(ch-'0')*(int)Math.pow(10,time);
+            time++;
+        } else if(ch!=' '){
+            if (time!=0){
+                stack.push(ope);
+                ope = 0;
+                time = 0;
+            }
+
+            if(c[i]=='('||(i==0 && !stack.isEmpty())){
+
+                int res = cal(stack);
+                stack.pop();
+                stack.push(res);
+
+
+            } else{
+                // if(ch==')') stack.push(ch);
+                // if(c[i]=='+'||c[i]=='-') stack.push();
+                stack.push(ch);
+            }
+
+        }
+
+    }
+    if(time!=0) stack.push(ope);
+    return cal(stack);
+}
+
+    public static int cal(Stack<Object> stack){
+        int res = 0;
+        if(!stack.isEmpty()){
+            res = (int)stack.pop();
+        }
+        while(!stack.isEmpty() && (char)stack.peek()!=')'){
+            char op = (char)stack.pop();
+            if(op=='+'){
+                res = res+(int)stack.pop();
+            }else if(op=='-'){
+                res = res-(int)stack.pop();
+            }
+        }
+        return res;
+    }
+
+    public static void main(String args[]){
+        /**
+         * (a+b)-c
+         * Input: "(1+(4+5+2)-3)+(6+8)"
+         Output: 23
+
+         // problem!!! "2-4-(8+2-6+(8+4-(1)+8-10))"
+         */
+
+        calculatebase("2-4-(8+2-6+(8+4-(1)+8-10))");
+//        findLength(new int[]{1,2,3},new int[]{2,3});
+
+        List<List<String>> a = new ArrayList<List<String>>();
+//        a.add(new ArrayList<String>())
+        ArrayList<String> b = new ArrayList<>();
+        b.add("google.com");
+        b.add("60");
+        a.add(b);
+        b.clear();
+        b.add("yahoo.google.com");
+        b.add("50");
+        a.add(b);
+
+
+    }
+
 }
