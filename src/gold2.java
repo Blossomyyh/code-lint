@@ -68,7 +68,7 @@ public class gold2 {
 
     // Q4 Spiral Matrix
     public static int maxInteger = 1000000;
-    public static List<Integer> spiralMatrix(List<List<Integer>> matrix){
+    private static List<Integer> spiralMatrix(List<List<Integer>> matrix){
         List<Integer> list = new ArrayList<>();
         if(matrix == null || matrix.size() == 0) return list;
         //Prime table

@@ -10,6 +10,7 @@ public class island {
         int[][] visit = new int[r][c];
         for(int i = 0;i<r;i++){
             for(int j = 0;j<c;j++){
+                // todo: check whether was visited
                 if(visit[i][j] ==0 && (grid[i][j]-'1')==0){
                     //search for island
                     dfs(i,j,visit,grid);

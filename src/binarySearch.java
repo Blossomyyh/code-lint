@@ -34,4 +34,19 @@ public class binarySearch {
 
         return targetRange;
     }
+
+
+    /**
+     * search in rotated array
+     *
+     * (1) first search for rotated index with binary search
+     * (2) left / right binary search
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+
+
+
 }
